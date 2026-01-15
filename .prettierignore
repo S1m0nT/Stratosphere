@@ -1,0 +1,55 @@
+# Dependencies
+node_modules/
+**/node_modules/
+pnpm-lock.yaml
+
+# Rust
+target/
+Cargo.lock
+
+# Builds
+build/
+dist/
+.next/
+.expo/
+web-build/
+coverage/
+
+# Generated files
+*.generated.*
+*.d.ts
+*.tsbuildinfo
+
+# Cache directories
+.cache/
+.eslintcache
+
+# Environment and config
+.env*
+!.env.example
+
+# Assets and resources
+assets/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.svg
+*.ttf
+*.woff
+*.woff2
+*.eot
+
+# Package files
+package-lock.json
+yarn.lock
+
+# Misc
+.DS_Store
+*.log
+*.bak
+*.tmp
+*.swp
+
+.turbo

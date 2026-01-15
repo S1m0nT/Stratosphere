@@ -1,0 +1,9 @@
+{
+  "name": "@stratosphere/analysis-service",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env RUST_LOG=info cargo watch -c -w src -w Cargo.toml -x run",
+    "build": "cargo build",
+    "test": "cargo test"
+  }
+}

@@ -1,0 +1,6 @@
+packages:
+  - "frontend"
+  - "ingestion-service"
+  - "processing-service"
+  - "analysis-service"
+  - "common"

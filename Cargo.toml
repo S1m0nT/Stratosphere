@@ -1,0 +1,18 @@
+[workspace]
+members = [
+  "common",
+  "ingestion-service",
+  "processing-service",
+  "analysis-service",
+]
+resolver = "2"
+
+[workspace.dependencies]
+tokio = { version = "1.43", features = ["full"] }
+async-nats = "0.38"
+clickhouse = { version = "0.13", features = ["uuid"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"

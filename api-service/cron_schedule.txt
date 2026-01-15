@@ -1,0 +1,13 @@
+# Schedule for running notifications
+# Recommended crontab entry:
+
+# Run push notifications every hour
+0 * * * * cd /path/to/stratosphere/api-service && python send_notifications.py >> /path/to/logs/notifications.log 2>&1
+
+# Example of how to set up this cron job:
+# 1. Edit your crontab with: crontab -e
+# 2. Add the line above, replacing the paths
+# 3. Save and exit
+
+# For development, you can test the script manually by running:
+# python send_notifications.py

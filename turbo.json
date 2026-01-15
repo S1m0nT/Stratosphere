@@ -1,0 +1,73 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "globalDependencies": [".env"],
+  "globalEnv": ["RUST_LOG", "NATS_URL", "CLICKHOUSE_URL"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "target/**"]
+    },
+    "lint": {
+      "outputs": [],
+      "cache": true
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "cache": true
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "frontend#dev": {
+      "env": ["EXPO_PUBLIC_API_URL"],
+      "persistent": true,
+      "outputs": []
+    },
+    "ingestion-service#build": {
+      "dependsOn": ["common#build"],
+      "outputs": ["target/**"]
+    },
+    "ingestion-service#dev": {
+      "env": [
+        "STREAM_NAME",
+        "SUBJECT",
+        "BATCH_SIZE",
+        "FLUSH_INTERVAL_SECS",
+        "MAX_AGE_SECS",
+        "MAX_RECONNECT_ATTEMPTS",
+        "INITIAL_RECONNECT_SECS",
+        "MAX_RECONNECT_SECS",
+        "SAMPLING_RATE"
+      ],
+      "persistent": true
+    },
+    "processing-service#build": {
+      "dependsOn": ["common#build"],
+      "outputs": ["target/**"]
+    },
+    "processing-service#dev": {
+      "env": [
+        "STREAM_NAME",
+        "CONSUMER_NAME",
+        "SUBJECT",
+        "BATCH_SIZE",
+        "MIN_WORD_LENGTH",
+        "MAX_WORD_LENGTH"
+      ],
+      "persistent": true
+    },
+    "analysis-service#build": {
+      "dependsOn": ["common#build"],
+      "outputs": ["target/**"]
+    },
+    "analysis-service#dev": {
+      "env": ["ANALYSIS_INTERVAL_SECS", "TREND_WINDOW_SECS", "MIN_POST_COUNT", "MAX_TRENDS"],
+      "persistent": true
+    },
+    "common#build": {
+      "outputs": ["target/**"]
+    }
+  }
+}

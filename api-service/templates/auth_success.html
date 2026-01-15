@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Authentication Complete</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        text-align: center;
+        padding: 40px 20px;
+        background-color: #f7f7f7;
+        color: #333;
+        margin: 0;
+      }
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #1a1a1a;
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+      p {
+        color: #666;
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+      .success {
+        color: #0070e4;
+        font-size: 64px;
+        margin: 20px 0 10px;
+      }
+      .instructions {
+        background-color: #f0f7ff;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 24px 0;
+        font-weight: 500;
+      }
+      .app-icon {
+        width: 60px;
+        height: 60px;
+        background-color: #0070e4;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        font-size: 30px;
+        color: white;
+      }
+      .emphasis {
+        font-weight: bold;
+        color: #0070e4;
+      }
+      .user-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+      }
+      .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #ddd;
+        margin-right: 12px;
+        background-size: cover;
+        background-position: center;
+      }
+      .user-name {
+        font-weight: bold;
+        font-size: 18px;
+      }
+      .user-handle {
+        color: #666;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="app-icon">S</div>
+      <div class="success">✓</div>
+      <h1>Authentication Complete!</h1>
+
+      <div class="user-info">
+        {% if avatar_url %}
+        <div class="avatar" style="background-image: url({{ avatar_url }})"></div>
+        {% endif %}
+        <div>
+          <div class="user-name">{{ display_name }}</div>
+          <div class="user-handle">@{{ handle }}</div>
+        </div>
+      </div>
+
+      <p>Your Bluesky account has been successfully connected to Stratosphere.</p>
+
+      <div class="instructions">
+        <p class="emphasis">Return to Stratosphere app now</p>
+        <p>Close this browser window and go back to the app to start exploring trends.</p>
+      </div>
+    </div>
+
+    <script>
+      // This script will help the mobile app detect authentication completion
+      // by sending a message that can be captured
+      window.addEventListener("load", function () {
+        if (window.opener) {
+          // If opened from another window, notify parent
+          window.opener.postMessage({ authComplete: true }, "*");
+        }
+      });
+    </script>
+  </body>
+</html>

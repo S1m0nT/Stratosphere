@@ -1,0 +1,25 @@
+[package]
+name = "ingestion-service"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+common = { path = "../common" }
+async-nats = { workspace = true }
+tokio = { workspace = true }
+tokio-tungstenite = { version = "0.26", features = ["native-tls"] }
+futures = "0.3"
+futures-util = "0.3"
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true, features = ["env-filter", "std"] }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = "2.0"
+url = "2.5"
+whatlang = "0.16"
+metrics = "0.24"
+metrics-exporter-prometheus = "0.16"
+anyhow = "1.0"
+parking_lot = "0.12.3"
+rand = "0.9.0"
+chrono.workspace = true

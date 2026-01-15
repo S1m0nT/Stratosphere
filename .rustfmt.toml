@@ -1,0 +1,43 @@
+# Maximum line length - Google style typically allows 100-120 characters
+max_width = 120
+
+# Use spaces for indentation (Google style)
+hard_tabs = false
+tab_spaces = 4
+
+# Imports configuration
+reorder_imports = true
+reorder_modules = true
+imports_granularity = "Item"       # Forces one item per line
+group_imports = "StdExternalCrate" # Groups imports by std, external, and crate
+
+# Function formatting
+fn_params_layout = "Tall"        # Vertical alignment for function parameters when they don't fit on one line
+fn_call_width = 90               # Slightly less than max_width to encourage good parameter grouping
+use_small_heuristics = "Default" # Maintains good width ratios for different constructs
+
+# Structural formatting
+struct_lit_width = 80
+struct_variant_width = 80
+array_width = 90
+chain_width = 90
+single_line_if_else_max_width = 80
+
+# Code style
+use_field_init_shorthand = true # Use struct field init shorthand where possible
+use_try_shorthand = true        # Use ? instead of try! macro
+force_explicit_abi = true       # Always show extern ABI
+remove_nested_parens = true     # Remove redundant parentheses
+
+# Match formatting
+match_arm_leading_pipes = "Never" # Cleaner match statements without leading pipes
+match_block_trailing_comma = true # Consistent with other block-like constructs
+
+# Modern Rust
+edition = "2024" # Use 2024 edition by default
+
+# Derives handling
+merge_derives = true # Combine multiple derives into a single attribute
+
+# Misc formatting
+newline_style = "Unix" # Use Unix-style line endings

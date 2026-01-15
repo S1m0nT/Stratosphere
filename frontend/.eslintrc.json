@@ -1,0 +1,6 @@
+{
+  "extends": "eslint-config-universe",
+  "rules": {
+    // Add any custom rules here
+  }
+}

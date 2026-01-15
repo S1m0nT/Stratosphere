@@ -1,0 +1,22 @@
+[package]
+name = "analysis-service"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+common = { path = "../common" }
+tokio = { workspace = true }
+async-nats = { workspace = true }
+clickhouse = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+reqwest = { version = "0.12", features = ["json"] }
+thiserror = "2.0.11"
+chrono = { workspace = true, features = ["serde"] }
+serde = { workspace = true, features = ["derive"] }
+uuid = { version = "1.13.1", features = ["v4"] }
+parking_lot = "0.12.3"
+futures-util = "0.3.31"
+futures = "0.3.31"
+strsim = "0.11.1"

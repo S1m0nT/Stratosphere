@@ -1,0 +1,29 @@
+{
+  "name": "stratosphere",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
+    "prepare": "cargo install cargo-watch"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv-cli": "^8.0.0",
+    "prettier": "^3.5.2",
+    "turbo": "^2.4.4"
+  },
+  "packageManager": "pnpm@8.15.9",
+  "engines": {
+    "node": ">=18"
+  },
+  "workspaces": [
+    "frontend",
+    "ingestion-service",
+    "processing-service",
+    "analysis-service",
+    "common"
+  ]
+}
